@@ -1,0 +1,25 @@
+<html lang="en">
+    <table style="height: 5px; width: 800px;">
+        <tbody>
+        <tr>
+        <td style="width: 86px; text-align: center;"><a href="/">Main Page</a></td>
+        <td style="width: 130px; text-align: center;"><a href="/index">Add records to Main Database</a></td>
+        <td style="width: 108px; text-align: center;"><a href="/view">View database</a></td>
+        <td style="width: 150px; text-align: center;"><a href="/bigbasket">Order Groceries</a></td>
+        <td style="width: 150px; text-align: center;"><a href="/medplus">Order Medicines</a></td>
+        <td style="width: 77px; text-align: center;"><a href="/statistics">Stats</a></td>
+        <td style="width: 77px; text-align: center;"><a href="/contact">Contact us</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <head>
+        <meta charset="UTF-8">
+        <title>Statistics</title>
+        {{ init_charts }}
+        <script type="text/javascript" src="{{ url_for('static', filename='pie_charts.js') }}"></script>
+    </head>
+    <body>
+        <h1 style="text-align:center">Pie Chart on Medical Conditions</h1>
+        {{ med_chart() }}
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<html>
+<table style="height: 5px; width: 800px;">
+<tbody>
+<tr>
+<td style="width: 86px; text-align: center;"><a href="/">Main Page</a></td>
+<td style="width: 130px; text-align: center;"><a href="/index">Add records to Main Database</a></td>
+<td style="width: 108px; text-align: center;"><a href="/view">View database</a></td>
+<td style="width: 150px; text-align: center;"><a href="/bigbasket">Order Groceries</a></td>
+<td style="width: 150px; text-align: center;"><a href="/medplus">Order Medicines</a></td>
+<td style="width: 77px; text-align: center;"><a href="/statistics">Stats</a></td>
+<td style="width: 77px; text-align: center;"><a href="/contact">Contact us</a></td>
+</tr>
+</tbody>
+</table>
+
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Main Database</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Main Database</h1>
+    {% if tasks|length < 1 %}
+    <h4 style="text-align: center">There are no records. Add one below!</h4>
+    {% else %}
+    <table style="height: 5px; width: 800px; background-color: #c7de8d; margin-left: auto; margin-right: auto;" border="2" cellpadding="2">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Medical conditions</th>
+            <th>Prescriptions</th>
+            <th>Added on</th>
+        </tr>
+        {% for task in tasks %}
+            <tr style="text-align: center">
+                <td>{{ task.id }}</td>
+                <td>{{ task.name }}</td>
+                <td>{{ task.age }}</td>
+                <td>{{ task.address }}</td>
+                <td>{{ task.med }}</td>
+                <td>{{ task.pres }}</td>
+                <td>{{ task.date_created.date() }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    </div>
+{% endblock %}

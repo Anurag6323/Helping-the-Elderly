@@ -1,0 +1,41 @@
+<html>
+<table style="height: 5px; width: 800px;">
+<tbody>
+<tr>
+<td style="width: 86px; text-align: center;"><a href="/">Main Page</a></td>
+<td style="width: 130px; text-align: center;"><a href="/index">Add records to Main Database</a></td>
+<td style="width: 108px; text-align: center;"><a href="/view">View database</a></td>
+<td style="width: 150px; text-align: center;"><a href="/bigbasket">Order Groceries</a></td>
+<td style="width: 150px; text-align: center;"><a href="/medplus">Order Medicines</a></td>
+<td style="width: 77px; text-align: center;"><a href="/statistics">Stats</a></td>
+<td style="width: 77px; text-align: center;"><a href="/contact">Contact us</a></td>
+</tr>
+</tbody>
+</table>
+{% extends 'base.html' %}
+
+{% block head %}
+<title>MAIN DATABASE</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Update Medical Conditions</h1>
+
+    <div class="form">
+        <form action="/update/{{task.id}}" method="POST">
+            <label for="id">Updated Medical Conditions:</label><br><br>
+            <select id="med" name="med" >
+                <option value="Nil">Nil</option>
+                <option value="Diabetic">Diabetic</option>
+                <option value="Blind">Blind</option>
+                <option value="Deaf">Deaf</option>
+                <option value="Cancer">Cancer</option>
+                <option value="Astigmatic">Astigmatic</option>
+                <option value="Alzheimer">Alzheimer's</option>
+            </select><br><br>   
+            <input type="submit" value="Update">
+        </form>
+    </div>
+</div>
+{% endblock %}
